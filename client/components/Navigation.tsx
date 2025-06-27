@@ -1,12 +1,36 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Building2, Users, Landmark } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  Building2,
+  Users,
+  Landmark,
+  Globe,
+  ChevronDown,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   const location = useLocation();
+
+  const languages = [
+    { code: "en", name: "English", flag: "🇺🇸" },
+    { code: "hi", name: "हिंदी", flag: "🇮🇳" },
+    { code: "te", name: "తెలుగు", flag: "🇮🇳" },
+    { code: "ta", name: "தமிழ்", flag: "🇮🇳" },
+    { code: "kn", name: "ಕನ್ನಡ", flag: "🇮🇳" },
+  ];
 
   const navItems = [
     { path: "/", label: "Home", icon: Home },
@@ -56,21 +80,88 @@ const Navigation = () => {
                 </Link>
               );
             })}
+
+            {/* Language Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="flex items-center space-x-2 px-3 py-2 text-foreground hover:bg-accent hover:text-accent-foreground"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span className="text-sm">
+                    {
+                      languages.find((lang) => lang.code === selectedLanguage)
+                        ?.flag
+                    }
+                  </span>
+                  <span className="hidden lg:inline text-sm">
+                    {
+                      languages.find((lang) => lang.code === selectedLanguage)
+                        ?.name
+                    }
+                  </span>
+                  <ChevronDown className="w-3 h-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-40">
+                {languages.map((language) => (
+                  <DropdownMenuItem
+                    key={language.code}
+                    onClick={() => setSelectedLanguage(language.code)}
+                    className="flex items-center space-x-3 cursor-pointer"
+                  >
+                    <span>{language.flag}</span>
+                    <span className="text-sm">{language.name}</span>
+                    {selectedLanguage === language.code && (
+                      <div className="w-2 h-2 bg-primary rounded-full ml-auto"></div>
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </Button>
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Language Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="p-2">
+                  <Globe className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-36">
+                {languages.map((language) => (
+                  <DropdownMenuItem
+                    key={language.code}
+                    onClick={() => setSelectedLanguage(language.code)}
+                    className="flex items-center space-x-2 cursor-pointer"
+                  >
+                    <span>{language.flag}</span>
+                    <span className="text-sm">{language.name}</span>
+                    {selectedLanguage === language.code && (
+                      <div className="w-2 h-2 bg-primary rounded-full ml-auto"></div>
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Mobile menu button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
