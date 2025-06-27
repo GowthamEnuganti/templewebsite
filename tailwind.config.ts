@@ -57,6 +57,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Temple-specific colors
+        saffron: {
+          50: "hsl(35, 100%, 95%)",
+          100: "hsl(35, 100%, 88%)",
+          200: "hsl(35, 100%, 78%)",
+          300: "hsl(35, 100%, 68%)",
+          400: "hsl(35, 95%, 58%)",
+          500: "hsl(25, 85%, 45%)",
+          600: "hsl(25, 85%, 38%)",
+          700: "hsl(25, 85%, 28%)",
+          800: "hsl(25, 85%, 18%)",
+          900: "hsl(25, 85%, 8%)",
+        },
+        temple: {
+          stone: "hsl(35, 15%, 85%)",
+          gold: "hsl(45, 90%, 70%)",
+          earth: "hsl(25, 35%, 25%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +98,24 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          from: {
+            opacity: "0",
+            transform: "translateY(20px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.6s ease-out",
+      },
+      fontFamily: {
+        serif: ["Georgia", "Times New Roman", "serif"],
       },
     },
   },
