@@ -47,7 +47,94 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 temple-hero-bg overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-5"></div>
+        {/* Scrolling Background Images */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="flex animate-scroll-left space-x-8 h-full">
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+          </div>
+          <div className="flex animate-scroll-right space-x-8 h-full -mt-full">
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+            <img
+              src="/placeholder.svg"
+              alt=""
+              className="h-full w-64 object-cover flex-shrink-0"
+            />
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background/80"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="animate-fade-in">
